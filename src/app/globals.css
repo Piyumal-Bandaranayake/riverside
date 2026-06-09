@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-playfair), serif;
+  --font-sans: var(--font-poppins), sans-serif;
+  
+  --color-river-blue: #0E7490;
+  --color-river-blue-light: #0f85a5;
+  --color-river-blue-dark: #0a586e;
+  
+  --color-tropical-green: #15803D;
+  --color-tropical-green-light: #1b9e4b;
+  
+  --color-golden-sand: #F59E0B;
+  --color-golden-sand-light: #fbbf24;
+  
+  --color-bg-warm: #FAF7F2;
+  --color-text-dark: #1F2937;
+  --color-footer-dark: #0A1118;
+  
+  --animate-fade-in: fade-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-slide-up: slide-up 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-bounce-down: bounce-down 2s infinite;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounce-down {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg-warm);
+  color: var(--color-text-dark);
+  font-family: var(--font-sans);
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #0E7490;
+  border-radius: 5px;
+  border: 2px solid #FAF7F2;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0a586e;
+}
+
+/* Glassmorphism exception (used very deliberately for header blur and hero statistics card as allowed under rare and purposeful situations) */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-panel-dark {
+  background: rgba(10, 17, 24, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-delay: 0s !important;
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
